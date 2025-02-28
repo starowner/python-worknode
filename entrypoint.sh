@@ -38,12 +38,11 @@ echo "${USER_NAME}:${USER_PASSWORD}" | chpasswd
 usermod -aG sudo ${USER_NAME}
 
 # Create .ssh directory and set permissions
-if [ -n "${SSH_PUB}" ]; then
-    mkdir -p /home/${USER_NAME}/.ssh
-    echo "${SSH_PUB}" >> /home/${USER_NAME}/.ssh/authorized_keys
-    chmod 600 /home/${USER_NAME}/.ssh/authorized_keys
-    chown -R ${USER_NAME}:${USER_NAME} /home/${USER_NAME}/.ssh
-fi
+mkdir -p /home/${USER_NAME}/.ssh
+echo "${SSH_PUB}" >> /home/${USER_NAME}/.ssh/authorized_keys
+chmod 600 /home/${USER_NAME}/.ssh/authorized_keys
+chown -R ${USER_NAME}:${USER_NAME} /home/${USER_NAME}/.ssh
+
 
 # Configure git
 sudo -u ${USER_NAME} git config --global user.name "${GIT_NAME}"

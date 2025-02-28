@@ -7,7 +7,7 @@ on:
 
 env:
   DOCKER_NAME: python-devbox # 在这里定义您的 Docker 镜像名称
-  DOCKER_VERSION: v0.1  # 在这里定义版本号
+  DOCKER_VERSION: v0.1.1  # 在这里定义版本号
 
 jobs:
   build-docker-image:
